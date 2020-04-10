@@ -1,0 +1,26 @@
+﻿@model Carrello.Models.Articolo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Articolo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticoloNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticoloNome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ArticoloId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
