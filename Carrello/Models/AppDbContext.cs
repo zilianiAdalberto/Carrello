@@ -12,7 +12,7 @@ namespace Carrello.Models
         public DbSet<Cliente> Clienti { get; set; }
 
         public DbSet<Articolo> Articoli { get; set; }
-
+         
     }
 
 }
