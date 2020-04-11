@@ -9,7 +9,7 @@ namespace Carrello.Models
 {
     public class AppDBContext : DbContext
     {
-        public DbSet<Cliente> Clienti { get; set; }
+        public DbSet<ClienteBase> Clienti { get; set; }
 
         public DbSet<Articolo> Articoli { get; set; }
          

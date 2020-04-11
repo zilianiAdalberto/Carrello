@@ -10,8 +10,6 @@ namespace Carrello.Models
         public int ArticoloId { get; set; }
 
         public string ArticoloNome { get; set; }
-
-        public IEnumerable<Cliente> ArticoloClienti{ get; set; }
-
+   
     }
 }
