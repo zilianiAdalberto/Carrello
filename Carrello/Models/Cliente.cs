@@ -5,11 +5,12 @@ using System.Web;
 
 namespace Carrello.Models
 {
-    public class ClienteBase
+    public class Cliente : ClienteBase
     {
-        public int ClienteId { get; set; }
 
-        public string ClienteNome { get; set; }
+
+        public virtual ICollection<Cliente> Clienti { get; set; }
+
 
     }
 }

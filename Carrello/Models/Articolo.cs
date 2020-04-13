@@ -5,11 +5,10 @@ using System.Web;
 
 namespace Carrello.Models
 {
-    public class Articolo
+    public class Articolo : ArticoloBase
     {
-        public int ArticoloId { get; set; }
 
-        public string ArticoloNome { get; set; }
-   
+        public List<Cliente> Clienti { get; set; }
+
     }
 }
