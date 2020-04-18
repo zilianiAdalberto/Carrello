@@ -11,7 +11,7 @@ namespace Carrello.ViewModels
     {
 
              public Cliente Cliente { get; set; }
-        public IEnumerable<SelectListItem> ArticoliList { get; set; }
+            public IEnumerable<SelectListItem> ArticoliList { get; set; }
       
 
         }
