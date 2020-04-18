@@ -30,7 +30,7 @@ namespace Carrello.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClienteBase cliente = db.Clienti.Find(id);
+            Cliente cliente = db.Clienti.Find(id);
             if (cliente == null)
             {
                 return HttpNotFound();
@@ -74,13 +74,7 @@ namespace Carrello.Controllers
             {
                 return HttpNotFound();
             }
-            ClientiViewModel model = new ClientiViewModel();
-
-           List<Articolo> articoli = db.Articoli.Where(O => O.ClienteId == id).ToList();
-
-            model.Cliente = cliente;
-            model.ArticoliList = articoli;
-           ViewBag.articoli = articoli;
+                   
             return View();
 
            // return View(cliente);
@@ -110,7 +104,7 @@ namespace Carrello.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClienteBase cliente = db.Clienti.Find(id);
+            Cliente cliente = db.Clienti.Find(id);
             if (cliente == null)
             {
                 return HttpNotFound();
@@ -119,20 +113,60 @@ namespace Carrello.Controllers
         }
 
 
-        public ActionResult GetArticoli(int id)
-        {
-            ClientiViewModel model = new ClientiViewModel();
-                 Cliente cliente = db.Clienti.FirstOrDefault(u => u.ClienteId== id);
-          
-       
-            var articoli = db.Articoli.Where(O => O.ClienteId == id).ToList();
+        //public ActionResult GetArticoli(int? idcliente)
+        //{
+        //    ViewBag.Cliente= db.Clienti.Find(idcliente);
+        //    ViewBag.Articoli = db.Articoli.Where(g => !g.Clienti.Any(u => u.ClienteId == idcliente.Value) ).Select(g => new SelectListItem() { Value = g.ArticoloId.ToString(), Text = g.ArticoloNome });
+        //    return View(idcliente);
+        //}
 
-            model.Cliente = cliente;
-            model.ArticoliList = articoli;
+
+
+
+
+        public ActionResult GetArticoli(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Cliente cliente = db.Clienti.Find(id);
+            if (cliente == null)
+            {
+                return HttpNotFound();
+            }
+            
+            cliente = db.Clienti.Find(id);
+            var articoli = db.Articoli.Where(a => a.ClienteId == id).Select(a => new SelectListItem {
+                                           Value = a.ArticoloId.ToString(),
+                                           Text = a.ArticoloNome
+                                       }).ToList();
             ViewBag.articoli = articoli;
-            return View(model);
+            return View(cliente);
         }
 
+        public ActionResult EditArticoli(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Cliente cliente = db.Clienti.Find(id);
+            if (cliente == null)
+            {
+                return HttpNotFound();
+            }
+
+            cliente = db.Clienti.Find(id);
+            var articoli = db.Articoli.Where(a => a.ClienteId == id).Select(a =>
+                                       new SelectListItem
+                                       {
+                                           Value = a.ArticoloId.ToString(),
+                                           Text = a.ArticoloNome
+                                       }).ToList();
+            ViewBag.articoli = articoli;
+            return View(cliente);
+        }
 
 
         // POST: Clienti/Delete/5

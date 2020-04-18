@@ -10,7 +10,6 @@ namespace Carrello.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Carrello.Models.AppDBContext";
         }
 
         protected override void Seed(Carrello.Models.AppDBContext context)

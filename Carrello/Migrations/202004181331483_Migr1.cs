@@ -3,21 +3,22 @@ namespace Carrello.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Migr1 : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Articoloes",
+                "dbo.Articoli",
                 c => new
                     {
                         ArticoloId = c.Int(nullable: false, identity: true),
                         ArticoloNome = c.String(),
+                        ClienteId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ArticoloId);
             
             CreateTable(
-                "dbo.Clientes",
+                "dbo.Clienti",
                 c => new
                     {
                         ClienteId = c.Int(nullable: false, identity: true),
@@ -29,8 +30,8 @@ namespace Carrello.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Clientes");
-            DropTable("dbo.Articoloes");
+            DropTable("dbo.Clienti");
+            DropTable("dbo.Articoli");
         }
     }
 }

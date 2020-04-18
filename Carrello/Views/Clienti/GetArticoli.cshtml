@@ -1,18 +1,18 @@
-﻿@*@model Carrello.Models.Cliente*@
+﻿@model Carrello.Models.Cliente
 @using Carrello.Models
 @using System.Data.Entity
 
-@model Carrello.Models.Cliente
-
 @{
-    IEnumerable<SelectListItem> articoli = ViewBag.articoli;
+    ViewBag.Title = "GetArticoli";
+    IEnumerable<SelectListItem> articoli = (IEnumerable<SelectListItem>)ViewBag.Articoli;
+   
 }
 
-@{
-    ViewBag.Title = "Edit";
 
-}
-<h2>Edit</h2>
+
+
+<h2>GetArticoli</h2>
+
 
 @using (Html.BeginForm())
 {

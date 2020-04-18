@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Carrello.ViewModels
 {
@@ -10,7 +11,8 @@ namespace Carrello.ViewModels
     {
 
              public Cliente Cliente { get; set; }
-            public IEnumerable<Articolo> ArticoliList { get; set; }
+        public IEnumerable<SelectListItem> ArticoliList { get; set; }
+      
 
         }
 

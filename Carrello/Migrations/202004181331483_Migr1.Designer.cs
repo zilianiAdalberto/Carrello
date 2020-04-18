@@ -7,13 +7,13 @@ namespace Carrello.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Migr2 : IMigrationMetadata
+    public sealed partial class Migr1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Migr2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Migr1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004101509353_Migr2"; }
+            get { return "202004181331483_Migr1"; }
         }
         
         string IMigrationMetadata.Source
